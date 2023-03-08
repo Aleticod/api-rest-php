@@ -8,7 +8,7 @@ $allowedResourceType = [
 
 $resourceType = $_GET['resource_type'];
 
-if ( !in_array($resourceType, $allowedResourceType) {
+if ( !in_array($resourceType, $allowedResourceType) ) {
 	die;
 };
 
@@ -37,7 +37,7 @@ switch ( strtoupper( $_SERVER['REQUEST_METHOD'] )) {
 			echo json_encode($books);
 		} else {
 			if (array_key_exists($resourceId, $books) ) {
-				echo json_encode($book[$resourceId]);
+				echo json_encode($books[$resourceId]);
 			}
 		};
 		break;
