@@ -48,6 +48,11 @@ switch ( strtoupper( $_SERVER['REQUEST_METHOD'] )) {
 		echo json_encode($books);
 		break;
 	case 'PUT':
+		if (!empty($resourceId) &&	array_key_exists($resourceId, $books) ) {
+			$json = file_get_contents('php://input');
+			$books[$resourceId] = json_decode($json, true);
+			echo json_encode($books);
+		}
 		break;
 	case 'DELETE':
 		break;
